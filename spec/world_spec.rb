@@ -8,7 +8,7 @@ describe 'World' do
 	let(:mars){World.new(4,2)}
 	let(:location) {class_double("Location").as_stubbed_const()}
 
-	#need to remove the allow statements
+	#need to refactor the allow statements
 		it 'has a size determined by the user imput' do 
 			allow(location).to receive(:new)
 			expect(mars.grid.count).to eq 15
