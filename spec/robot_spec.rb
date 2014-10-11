@@ -4,6 +4,9 @@ require 'robot'
 describe 'robot' do 
 
 	let(:curiosity){Robot.new("1","1","N")}
+	let(:lost_robot){Robot.new("0","-1","S")}
+	let(:world){double :world, on_grid?: false}
+	let(:location){double :location, warning_message: ""}
 
 	context 'when created' do 
 		it 'has an initial location and orientation' do
@@ -12,41 +15,64 @@ describe 'robot' do
 		end
 	end
 
-	context 'when given a command' do 
+	context 'when given a command to turn' do 
 		it 'turns left' do
-			curiosity.move("L")
+			curiosity.move("L", location)
 			expect(curiosity.orientation).to eq "W"
 		end
 
 		it 'turns right' do 
-			curiosity.move("R")
+			curiosity.move("R", location)
 			expect(curiosity.orientation).to eq "E"
 		end
 
+	end
+
+	context 'when the location does not have a warning message' do 
+
 		it 'moves North' do 
-			curiosity.move("F")
+			curiosity.move("F", location)
 			expect(curiosity.position).to eq("1,2")
 		end
 
 		it 'moves South' do 
 			curiosity = Robot.new("1","1","S")
-			curiosity.move("F")
+			curiosity.move("F", location)
 			expect(curiosity.position).to eq("1,0")
 		end
 
 		it 'moves East' do 
 			curiosity = Robot.new("1","1","E")
-			curiosity.move("F")
+			curiosity.move("F", location)
 			expect(curiosity.position).to eq("2,1")
 		end
 
 		it 'moves West' do 
 			curiosity = Robot.new("1","1","W")
-			curiosity.move("F")
+			curiosity.move("F", location)
 			expect(curiosity.position).to eq("0,1")
 		end
 
+		it 'can fall off the grid' do 
+			lost_robot.check_still_on(world)
+			expect(lost_robot.position).to eq("LOST")
+		end
 
+		it 'cant change position once lost' do 
+			lost_robot.position = "LOST"
+			lost_robot.move("F", location)
+			expect(lost_robot.position).to eq("LOST")
+		end
+
+	end
+
+	context 'when the location does have a warning message' do
+		
+		it 'the robot will not move in the direction of the warning' do
+			dangerous_location = double :location, warning_message: "N"
+			curiosity.move("F", dangerous_location)
+			expect(curiosity.position).to eq("1,1")
+		end
 	end
 
 end

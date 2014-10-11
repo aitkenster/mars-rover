@@ -5,10 +5,20 @@ class Robot
 			@orientation = orientation
 		end
 
-		attr_reader :position, :orientation
+		attr_accessor :position, :orientation
 
-		def move(direction)
-			direction =~ /\A(?:L|R|)\z/ ? @orientation = turn(direction) : go_forward
+		def move(direction, location)
+			if @position != "LOST"
+				direction =~ /\A(?:L|R|)\z/ ? @orientation = turn(direction) : go_forward if !flagged_as_dangerous?(location)
+			end
+		end
+
+		def check_still_on(world)
+			 mark_as_lost if !world.on_grid?(@position)
+		end
+
+		def flagged_as_dangerous?(location)
+			location.warning_message == @orientation
 		end
 
 private
@@ -45,5 +55,8 @@ private
 			@position.insert(0,(@orientation == "E" ? horizontal_position +=1 : horizontal_position -=1).to_s)
 		end
 
+		def mark_as_lost 
+			@position = "LOST"
+		end
 
 end
