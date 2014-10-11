@@ -8,8 +8,7 @@ class World
 
 	def create_grid_size(x,y)
 		@grid = {}
-		(0..x).map{|x| (0..y).map{|y| @grid["#{x},#{y}"] = "empty"}}
-		p @grid
+		(0..x).map{|x| (0..y).map{|y| @grid["#{x},#{y}"] = Location.new}}
 	end
 
 end
