@@ -7,12 +7,8 @@ describe 'location' do
 
 	context 'when created' do 
 
-		it 'is empty' do 
-			expect(location.contents).to be_empty
-		end
-
-		it 'is not flagged as an edge' do 
-			expect(location.flagged?).to eq false
+		it 'is does not have any warning messages' do 
+			expect(location.warning_messages).to be_empty
 		end
 
 	end
@@ -21,8 +17,14 @@ describe 'location' do
 
 		it 'is flagged with a warning message' do 
 			location.leave_warning("W")
-			expect(location.warning_message).to eq("W")
-			expect(location.flagged?).to eq true
+			expect(location.warning_messages).to include("W")
+		end
+
+		it 'can have multiple direction warnings' do 
+			location.leave_warning("W")
+			location.leave_warning("N")
+			expect(location.warning_messages).to include("W")
+			expect(location.warning_messages).to include("N")
 		end
 
 	end

@@ -9,7 +9,7 @@ class Robot
 
 		def move(direction, location)
 			if @position != "LOST"
-				direction =~ /\A(?:L|R|)\z/ ? @orientation = turn(direction) : go_forward if !flagged_as_dangerous?(location)
+				direction =~ /\A(?:L|R|)\z/ ? @orientation = turn(direction) : (go_forward if !flagged_as_dangerous?(location))
 			end
 		end
 
@@ -18,7 +18,7 @@ class Robot
 		end
 
 		def flagged_as_dangerous?(location)
-			location.warning_message == @orientation
+			location.warning_messages.include?(@orientation)
 		end
 
 private

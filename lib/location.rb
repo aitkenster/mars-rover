@@ -1,17 +1,12 @@
 class Location
 	def initialize
-		@contents = []
-		@warning_message = ""
+		@warning_messages = []
 	end
 
-	attr_accessor :contents, :warning_message
-
-	def flagged?
-		!@warning_message.empty?
-	end
+	attr_accessor :warning_messages
 
 	def leave_warning(direction)
-		@warning_message = direction
+		@warning_messages << direction
 	end
 
 end

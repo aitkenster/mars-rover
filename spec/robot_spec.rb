@@ -6,7 +6,8 @@ describe 'robot' do
 	let(:curiosity){Robot.new("1","1","N")}
 	let(:lost_robot){Robot.new("0","-1","S")}
 	let(:world){double :world, on_grid?: false}
-	let(:location){double :location, warning_message: ""}
+	let(:location){double :location, warning_messages: []}
+	let(:dangerous_location){double :location, warning_messages: ["N", "E"]}
 
 	context 'when created' do 
 		it 'has an initial location and orientation' do
@@ -68,11 +69,16 @@ describe 'robot' do
 
 	context 'when the location does have a warning message' do
 		
-		it 'the robot will not move in the direction of the warning' do
-			dangerous_location = double :location, warning_message: "N"
+		it 'will not move in the direction of the warning' do
 			curiosity.move("F", dangerous_location)
 			expect(curiosity.position).to eq("1,1")
 		end
+	end
+
+	it 'will still move in other directions' do 
+			curiosity.move("L", dangerous_location)
+			curiosity.move("F", dangerous_location)
+			expect(curiosity.position).to eq("0,1")
 	end
 
 end
