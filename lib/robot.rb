@@ -13,12 +13,19 @@ class Robot
 			end
 		end
 
-		def check_still_on(world)
-			 mark_as_lost if !world.on_grid?(@position)
+		def check_still_on(world, location)
+			if !world.on_grid?(@position)
+				leave_warning(location)
+				mark_as_lost 
+			end
 		end
 
 		def flagged_as_dangerous?(location)
 			location.warning_messages.include?(@orientation)
+		end
+
+		def leave_warning(location)
+			location.leave_warning(@orientation)
 		end
 
 private
