@@ -20,6 +20,33 @@
         null,
         null
       ],
+      "/Users/Nicola/Documents/careers/red_badger/mars-rover/spec/robot_spec.rb": [
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/Nicola/Documents/careers/red_badger/mars-rover/lib/robot.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null
+      ],
       "/Users/Nicola/Documents/careers/red_badger/mars-rover/spec/world_spec.rb": [
         1,
         1,
@@ -64,6 +91,6 @@
         null
       ]
     },
-    "timestamp": 1413024129
+    "timestamp": 1413026263
   }
 }
