@@ -4,9 +4,20 @@ class Instructions
 	end
 
 	def convert_to_array(file)
-		@instructions_string = File.read(file)
+		@split_instructions_array = File.read(file).chars.reject!{|char| char == " " || char == "\n"}
 	end
 
-	attr_reader :instructions_string
+	def create_world
+		mars = World.new(grid_size[0].to_i, grid_size[1].to_i)
+	end
+
+	attr_accessor :split_instructions_array
+
+	private
+
+	def grid_size
+		@grid_size ||= @split_instructions_array.shift(2)
+	end
+
 
 end

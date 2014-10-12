@@ -4,7 +4,11 @@
       "/Users/Nicola/Documents/careers/red_badger/mars-rover/lib/instructions.rb": [
         1,
         1,
+        2,
+        null,
+        null,
         1,
+        16,
         null,
         null,
         1,
@@ -12,6 +16,13 @@
         null,
         null,
         1,
+        null,
+        1,
+        null,
+        1,
+        2,
+        null,
+        null,
         null,
         null
       ],
@@ -274,6 +285,6 @@
         null
       ]
     },
-    "timestamp": 1413057221
+    "timestamp": 1413103790
   }
 }
