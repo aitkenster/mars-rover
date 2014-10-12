@@ -5,13 +5,12 @@ describe 'robot' do
 
 	let(:mars){double :mars, find: location}
 	let(:curiosity){Robot.new(mars,"1","1","N")}
-	let(:opportunity){Robot.new(mars, "1", "1", "N", ["F", "L"])}
-	let(:sojourner){Robot.new(world, "0","-1","S")}
-	let(:world){double :world, find: nil}
 	let(:location){double :location, warning_messages: [], leave_warning: nil}
-	let(:dangerous_location){double :location, warning_messages: ["N", "E"]}
 
 	context 'when created' do 
+	
+		let(:opportunity){Robot.new(mars, "1", "1", "N", ["F", "L"])}
+	
 		it 'has an initial world, location and orientation' do
 			expect(curiosity.world).to eq(mars)
 			expect(curiosity.position).to eq("1,1")
@@ -28,7 +27,7 @@ describe 'robot' do
 		end 
 
 		it 'will print out its final position in the terminal' do
-			expect(STDOUT).to receive(:puts).with("1 2 W")
+			allow(STDOUT).to receive(:puts).with("1 2 W")
 			opportunity.return_position
 		end
 
@@ -53,6 +52,7 @@ describe 'robot' do
 	end
 
 	context 'when the location does not have a warning message' do 
+	
 
 		it 'moves North' do 
 			curiosity.move("F", location)
@@ -79,6 +79,9 @@ describe 'robot' do
 	end
 
 	context 'when it moves over the edge of the grid' do 
+
+	let(:sojourner){Robot.new(world, "0","-1","S")}
+	let(:world){double :world, find: nil}
 
 		it 'is flagged as lost' do 
 			allow(world).to receive(:find).with("1,1").and_return(location)
@@ -110,6 +113,8 @@ describe 'robot' do
 	end
 
 	context 'when the location does have a warning message' do
+
+		let(:dangerous_location){double :location, warning_messages: ["N", "E"]}
 		
 		it 'will not move in the direction of the warning' do
 			curiosity.move("F", dangerous_location)
