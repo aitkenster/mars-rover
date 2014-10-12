@@ -12,6 +12,7 @@ class Robot
 
 		def execute(movements)
 			@movements.each{|instruction| move(instruction, current_location)}
+			return_position
 		end
 
 		def current_location
@@ -23,8 +24,9 @@ class Robot
 		end
 
 		def move(direction, location)
-			get_last_position
+			check_still_on(@world, current_location)
 			if !@lost
+				get_last_position
 				direction =~ /\A(?:L|R|)\z/ ? @orientation = turn(direction) : (go_forward if !flagged_as_dangerous?(location))
 			end
 		end
@@ -32,7 +34,7 @@ class Robot
 		def check_still_on(world, location)
 			if !world.find(@position)
 				@position = @last_position
-				leave_warning(@world.find(@position))
+				leave_warning(@world.find(@last_position))
 				mark_as_lost 
 			end
 		end

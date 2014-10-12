@@ -4,18 +4,18 @@ class Instructions
 	end
 
 	def create_world
-		mars = World.new(grid_size[0].to_i, grid_size[1].to_i)
+		@world = World.new(grid_size[0].to_i, grid_size[1].to_i)
 	end
 
 	def process_robot_instructions
-		while unfulfilled_instructions.any?
+		while !unfulfilled_instructions.empty?
 			get_set_of_instructions
 			place_new_robot
 		end
 	end
 
 	def place_new_robot
-		robot = Robot.new(@current_robot_instruction[0], @current_robot_instruction[1], @current_robot_instruction[2], @current_robot_instruction[3])
+		robot = Robot.new(@world, @current_robot_instruction[0], @current_robot_instruction[1], @current_robot_instruction[2], @current_robot_instruction[3])
 	end
 
 	def get_set_of_instructions
@@ -23,7 +23,7 @@ class Instructions
 		@current_robot_instruction << movement_instructions
 	end
 
-	attr_accessor :unfulfilled_instructions, :current_robot_instruction
+	attr_accessor :unfulfilled_instructions, :current_robot_instruction, :world
 
 	private
 
