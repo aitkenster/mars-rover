@@ -4,7 +4,6 @@ class Robot
 			@world = world
 			@position = "#{x},#{y}"
 			@orientation = orientation
-			
 			execute(@movements) if (@movements = movements).any?
 			@lost = false
 		end

@@ -37,6 +37,11 @@ describe 'instructions' do
 			nasa_orders.place_new_robot
 		end
 
+		it 'continues to feed instructions until there are none left' do 
+			allow(File).to receive(:read).with(file).and_return("1 1 E\nRFRFRFRF\n\n3 2 N\nFRRFLLFFRRFLL\n\n0 3 W\nLLFFFLFLFL")
+			nasa_orders.process_robot_instructions
+			expect(nasa_orders.unfulfilled_instructions).to be_empty
+		end
 	end
 
 end

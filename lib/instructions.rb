@@ -7,6 +7,13 @@ class Instructions
 		mars = World.new(grid_size[0].to_i, grid_size[1].to_i)
 	end
 
+	def process_robot_instructions
+		while unfulfilled_instructions.any?
+			get_set_of_instructions
+			place_new_robot
+		end
+	end
+
 	def place_new_robot
 		robot = Robot.new(@current_robot_instruction[0], @current_robot_instruction[1], @current_robot_instruction[2], @current_robot_instruction[3])
 	end
