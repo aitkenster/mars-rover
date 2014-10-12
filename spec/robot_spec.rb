@@ -3,17 +3,33 @@ require 'robot'
 
 describe 'robot' do 
 
-	let(:curiosity){Robot.new("1","1","N")}
-	let(:lost_robot){Robot.new("0","-1","S")}
+	let(:mars){double :mars, find: location}
+	let(:curiosity){Robot.new(mars,"1","1","N")}
+	let(:lost_robot){Robot.new(world, "0","-1","S")}
 	let(:world){double :world, on_grid?: false}
 	let(:location){double :location, warning_messages: [], leave_warning: nil}
 	let(:dangerous_location){double :location, warning_messages: ["N", "E"]}
 
 	context 'when created' do 
-		it 'has an initial location and orientation' do
+		it 'has an initial world, location and orientation' do
+			expect(curiosity.world).to eq(mars)
 			expect(curiosity.position).to eq("1,1")
 			expect(curiosity.orientation).to eq "N"
 		end
+
+		it 'can take a set of movements if given' do
+			allow(mars).to receive(:'grid["1,1"]').and_return(location)
+			curiosity = Robot.new(mars, "1", "1", "N", ["F", "L"])
+			expect(curiosity.movements).to eq(["F","L"])
+		end
+
+		xit 'will automatically process the movements if there are any' do 
+			allow(mars).to receive(:grid).and_return(location)
+			curiosity = Robot.new("1", "1", "N", ["F", "L"])
+			expect(curiosity.position).to eq("1,2")
+			expect(curiosity.orientation).to eq "W"
+		end 
+
 	end
 
 	context 'when given a command to turn' do 
@@ -37,19 +53,19 @@ describe 'robot' do
 		end
 
 		it 'moves South' do 
-			curiosity = Robot.new("1","1","S")
+			curiosity = Robot.new(mars, "1","1","S")
 			curiosity.move("F", location)
 			expect(curiosity.position).to eq("1,0")
 		end
 
 		it 'moves East' do 
-			curiosity = Robot.new("1","1","E")
+			curiosity = Robot.new(mars, "1","1","E")
 			curiosity.move("F", location)
 			expect(curiosity.position).to eq("2,1")
 		end
 
 		it 'moves West' do 
-			curiosity = Robot.new("1","1","W")
+			curiosity = Robot.new(mars, "1","1","W")
 			curiosity.move("F", location)
 			expect(curiosity.position).to eq("0,1")
 		end
@@ -63,9 +79,9 @@ describe 'robot' do
 		end
 
 		it 'cant change position once flagged as lost' do 
-			lost_robot.position = "LOST"
-			lost_robot.move("F", location)
-			expect(lost_robot.position).to eq("LOST")
+			curiosity.position = "LOST"
+			curiosity.move("F", location)
+			expect(curiosity.position).to eq("LOST")
 		end
 
 		it 'leaves a warning message at its last location' do 
@@ -83,12 +99,13 @@ describe 'robot' do
 			curiosity.move("F", dangerous_location)
 			expect(curiosity.position).to eq("1,1")
 		end
-	end
 
-	it 'will still move in other directions' do 
-			curiosity.move("L", dangerous_location)
-			curiosity.move("F", dangerous_location)
-			expect(curiosity.position).to eq("0,1")
+		it 'will still move in other directions' do 
+				curiosity.move("L", dangerous_location)
+				curiosity.move("F", dangerous_location)
+				expect(curiosity.position).to eq("0,1")
+		end
+
 	end
 
 end

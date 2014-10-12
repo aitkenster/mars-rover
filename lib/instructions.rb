@@ -8,7 +8,7 @@ class Instructions
 	end
 
 	def place_new_robot
-		robot = Robot.new()
+		robot = Robot.new(@current_robot_instruction[0], @current_robot_instruction[1], @current_robot_instruction[2], @current_robot_instruction[3])
 	end
 
 	def get_set_of_instructions

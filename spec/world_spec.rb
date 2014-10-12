@@ -20,6 +20,10 @@ describe 'World' do
 			expect(mars.grid["1,1"].class).to eq "Location" 
 		end
 
+		it 'will return a location based on a value' do 
+			expect(mars.find("1,1").class).to eq Location
+		end
+
 	end
 
 end

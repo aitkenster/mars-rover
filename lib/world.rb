@@ -11,4 +11,8 @@ class World
 		(0..x).map{|x| (0..y).map{|y| @grid["#{x},#{y}"] = Location.new}}
 	end
 
+	def find(location)
+		grid[location]
+	end
+
 end

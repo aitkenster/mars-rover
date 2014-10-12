@@ -1,11 +1,17 @@
 class Robot
 
-		def initialize(x, y, orientation)
+		def initialize(world, x, y, orientation, movements=[])
+			@world = world
 			@position = "#{x},#{y}"
 			@orientation = orientation
+			execute(@movements) if (@movements = movements).any?
 		end
 
-		attr_accessor :position, :orientation
+		attr_accessor :world, :position, :orientation, :movements
+
+		def execute(movements)
+			@movements.each{|instruction| move(instruction, @world.find(@position))}
+		end
 
 		def move(direction, location)
 			if @position != "LOST"
