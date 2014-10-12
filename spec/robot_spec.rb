@@ -5,7 +5,8 @@ describe 'robot' do
 
 	let(:mars){double :mars, find: location}
 	let(:curiosity){Robot.new(mars,"1","1","N")}
-	let(:lost_robot){Robot.new(world, "0","-1","S")}
+	let(:opportunity){Robot.new(mars, "1", "1", "N", ["F", "L"])}
+	let(:sojourner){Robot.new(world, "0","-1","S")}
 	let(:world){double :world, on_grid?: false}
 	let(:location){double :location, warning_messages: [], leave_warning: nil}
 	let(:dangerous_location){double :location, warning_messages: ["N", "E"]}
@@ -18,17 +19,18 @@ describe 'robot' do
 		end
 
 		it 'can take a set of movements if given' do
-			allow(mars).to receive(:'grid["1,1"]').and_return(location)
-			curiosity = Robot.new(mars, "1", "1", "N", ["F", "L"])
-			expect(curiosity.movements).to eq(["F","L"])
+			expect(opportunity.movements).to eq(["F","L"])
 		end
 
-		xit 'will automatically process the movements if there are any' do 
-			allow(mars).to receive(:grid).and_return(location)
-			curiosity = Robot.new("1", "1", "N", ["F", "L"])
-			expect(curiosity.position).to eq("1,2")
-			expect(curiosity.orientation).to eq "W"
+		it 'will automatically process the movements if there are any' do 
+			expect(opportunity.position).to eq("1,2")
+			expect(opportunity.orientation).to eq "W"
 		end 
+
+		it 'will print out its final position in the terminal' do
+			expect(STDOUT).to receive(:puts).with("1 2 W")
+			opportunity.return_position
+		end
 
 	end
 
@@ -74,21 +76,28 @@ describe 'robot' do
 	context 'when it moves over the edge of the grid' do 
 
 		it 'is flagged as lost' do 
-			lost_robot.check_still_on(world, location)
-			expect(lost_robot.position).to eq("LOST")
+			sojourner.check_still_on(world, location)
+			expect(sojourner.lost).to eq true
 		end
 
 		it 'cant change position once flagged as lost' do 
-			curiosity.position = "LOST"
+			curiosity.lost = true
 			curiosity.move("F", location)
-			expect(curiosity.position).to eq("LOST")
+			expect(curiosity.position).to eq("1,1")
 		end
 
 		it 'leaves a warning message at its last location' do 
 			curiosity.move("F", location)
 			curiosity.check_still_on(world, location)
-			expect(curiosity.position).to eq("LOST")
+			expect(curiosity.lost).to eq true
 			expect(location).to have_received(:leave_warning).with("N")
+		end
+
+		it 'prints out its last known postion followed by LOST in the terminal' do 
+			curiosity.move("F", location)
+			curiosity.check_still_on(world, location)
+			expect(STDOUT).to receive(:puts).with("1 2 N LOST")
+			curiosity.return_position
 		end
 
 	end

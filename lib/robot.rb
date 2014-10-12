@@ -5,16 +5,21 @@ class Robot
 			@position = "#{x},#{y}"
 			@orientation = orientation
 			execute(@movements) if (@movements = movements).any?
+			@lost = false
 		end
 
-		attr_accessor :world, :position, :orientation, :movements
+		attr_accessor :world, :position, :orientation, :movements, :lost
 
 		def execute(movements)
-			@movements.each{|instruction| move(instruction, @world.find(@position))}
+			@movements.each{|instruction| move(instruction, current_location)}
+		end
+
+		def current_location
+			@world.find(@position)
 		end
 
 		def move(direction, location)
-			if @position != "LOST"
+			if !@lost
 				direction =~ /\A(?:L|R|)\z/ ? @orientation = turn(direction) : (go_forward if !flagged_as_dangerous?(location))
 			end
 		end
@@ -32,6 +37,10 @@ class Robot
 
 		def leave_warning(location)
 			location.leave_warning(@orientation)
+		end
+
+		def return_position
+			puts "#{@position.sub(",", " ")} #{@orientation}#{" LOST" if @lost}"
 		end
 
 private
@@ -69,7 +78,7 @@ private
 		end
 
 		def mark_as_lost 
-			@position = "LOST"
+			@lost = true
 		end
 
 end

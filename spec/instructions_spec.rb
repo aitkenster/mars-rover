@@ -37,12 +37,6 @@ describe 'instructions' do
 			nasa_orders.place_new_robot
 		end
 
-		xit 'instructs the robot to move' do 
-			allow(File).to receive(:read).with(file).and_return("test")	
-			nasa_orders.current_robot_instruction = ["1", "1","E", ["R", "F", "R", "F", "R", "F", "R", "F"]]
-			expect(robot).to receive(:move).with("1", "1", "E")
-		end
-
 	end
 
 end
