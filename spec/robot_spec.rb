@@ -7,7 +7,7 @@ describe 'robot' do
 	let(:curiosity){Robot.new(mars,"1","1","N")}
 	let(:opportunity){Robot.new(mars, "1", "1", "N", ["F", "L"])}
 	let(:sojourner){Robot.new(world, "0","-1","S")}
-	let(:world){double :world, on_grid?: false}
+	let(:world){double :world, find: nil}
 	let(:location){double :location, warning_messages: [], leave_warning: nil}
 	let(:dangerous_location){double :location, warning_messages: ["N", "E"]}
 
@@ -30,6 +30,11 @@ describe 'robot' do
 		it 'will print out its final position in the terminal' do
 			expect(STDOUT).to receive(:puts).with("1 2 W")
 			opportunity.return_position
+		end
+
+		it 'keeps track of its last position' do 
+			curiosity.move("F", location)
+			expect(curiosity.last_position).to eq "1,1"
 		end
 
 	end
@@ -76,6 +81,8 @@ describe 'robot' do
 	context 'when it moves over the edge of the grid' do 
 
 		it 'is flagged as lost' do 
+			allow(world).to receive(:find).with("1,1").and_return(location)
+			sojourner.last_position = "1,1"
 			sojourner.check_still_on(world, location)
 			expect(sojourner.lost).to eq true
 		end
@@ -96,7 +103,7 @@ describe 'robot' do
 		it 'prints out its last known postion followed by LOST in the terminal' do 
 			curiosity.move("F", location)
 			curiosity.check_still_on(world, location)
-			expect(STDOUT).to receive(:puts).with("1 2 N LOST")
+			expect(STDOUT).to receive(:puts).with("1 1 N LOST")
 			curiosity.return_position
 		end
 

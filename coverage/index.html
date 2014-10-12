@@ -14,26 +14,26 @@
       <img src="./assets/0.8.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2014-10-12T13:13:11+01:00">2014-10-12T13:13:11+01:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2014-10-12T16:45:37+01:00">2014-10-12T16:45:37+01:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">98.35%</span></span>
+    (<span class="covered_percent"><span class="green">98.43%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         3.26
+         3.43
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>7</b> files in total.
-    <b>182</b> relevant lines. 
-    <span class="green"><b>179</b> lines covered</span> and
+    <b>191</b> relevant lines. 
+    <span class="green"><b>188</b> lines covered</span> and
     <span class="red"><b>3</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -82,12 +82,12 @@
       
       <tr>
         <td class="strong"><a href="#cd4b6841781e95240abc4667bc614e9d31c6697c" class="src_link" title="lib/robot.rb">lib/robot.rb</a></td>
-        <td class="green strong">93.18 %</td>
-        <td>84</td>
-        <td>44</td>
-        <td>41</td>
+        <td class="green strong">93.75 %</td>
+        <td>91</td>
+        <td>48</td>
+        <td>45</td>
         <td>3</td>
-        <td>5.1</td>
+        <td>5.8</td>
       </tr>
       
       <tr>
@@ -103,9 +103,9 @@
       <tr>
         <td class="strong"><a href="#4d84e19fe3fa6b4532f8e70f69d356ef8784c65c" class="src_link" title="spec/robot_spec.rb">spec/robot_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>120</td>
-        <td>72</td>
-        <td>72</td>
+        <td>127</td>
+        <td>77</td>
+        <td>77</td>
         <td>0</td>
         <td>1.7</td>
       </tr>
@@ -613,10 +613,10 @@
         <div class="source_table" id="cd4b6841781e95240abc4667bc614e9d31c6697c">
   <div class="header">
     <h3>lib/robot.rb</h3>
-    <h4><span class="green">93.18 %</span> covered</h4>
+    <h4><span class="green">93.75 %</span> covered</h4>
     <div>
-      <b>44</b> relevant lines. 
-      <span class="green"><b>41</b> lines covered</span> and
+      <b>48</b> relevant lines. 
+      <span class="green"><b>45</b> lines covered</span> and
       <span class="red"><b>3</b> lines missed.</span>
     </div>
   </div>
@@ -642,487 +642,529 @@
           <code class="ruby">		def initialize(world, x, y, orientation, movements=[])</code>
         </li>
       
-        <li class="covered" data-hits="16" data-linenumber="4">
-          <span class="hits">16</span>
+        <li class="covered" data-hits="17" data-linenumber="4">
+          <span class="hits">17</span>
           
           <code class="ruby">			@world = world</code>
         </li>
       
-        <li class="covered" data-hits="16" data-linenumber="5">
-          <span class="hits">16</span>
+        <li class="covered" data-hits="17" data-linenumber="5">
+          <span class="hits">17</span>
           
           <code class="ruby">			@position = &quot;#{x},#{y}&quot;</code>
         </li>
       
-        <li class="covered" data-hits="16" data-linenumber="6">
-          <span class="hits">16</span>
+        <li class="covered" data-hits="17" data-linenumber="6">
+          <span class="hits">17</span>
           
           <code class="ruby">			@orientation = orientation</code>
         </li>
       
-        <li class="covered" data-hits="16" data-linenumber="7">
-          <span class="hits">16</span>
+        <li class="never" data-hits="" data-linenumber="7">
+          
+          
+          <code class="ruby">			</code>
+        </li>
+      
+        <li class="covered" data-hits="17" data-linenumber="8">
+          <span class="hits">17</span>
           
           <code class="ruby">			execute(@movements) if (@movements = movements).any?</code>
         </li>
       
-        <li class="covered" data-hits="16" data-linenumber="8">
-          <span class="hits">16</span>
+        <li class="covered" data-hits="17" data-linenumber="9">
+          <span class="hits">17</span>
           
           <code class="ruby">			@lost = false</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="9">
-          
-          
-          <code class="ruby">		end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="10">
           
           
+          <code class="ruby">		end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="11">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="11">
+        <li class="covered" data-hits="1" data-linenumber="12">
           <span class="hits">1</span>
           
-          <code class="ruby">		attr_accessor :world, :position, :orientation, :movements, :lost</code>
+          <code class="ruby">		attr_accessor :world, :position, :orientation, :movements, :lost, :last_position</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="12">
+        <li class="never" data-hits="" data-linenumber="13">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="13">
+        <li class="covered" data-hits="1" data-linenumber="14">
           <span class="hits">1</span>
           
           <code class="ruby">		def execute(movements)</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="14">
+        <li class="covered" data-hits="9" data-linenumber="15">
           <span class="hits">9</span>
           
           <code class="ruby">			@movements.each{|instruction| move(instruction, current_location)}</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="15">
+        <li class="never" data-hits="" data-linenumber="16">
           
           
           <code class="ruby">		end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="16">
+        <li class="never" data-hits="" data-linenumber="17">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="17">
+        <li class="covered" data-hits="1" data-linenumber="18">
           <span class="hits">1</span>
           
           <code class="ruby">		def current_location</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="18">
+        <li class="covered" data-hits="6" data-linenumber="19">
           <span class="hits">6</span>
           
           <code class="ruby">			@world.find(@position)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="19">
+        <li class="never" data-hits="" data-linenumber="20">
           
           
           <code class="ruby">		end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="20">
+        <li class="never" data-hits="" data-linenumber="21">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="21">
+        <li class="covered" data-hits="1" data-linenumber="22">
           <span class="hits">1</span>
           
-          <code class="ruby">		def move(direction, location)</code>
+          <code class="ruby">		def get_last_position</code>
         </li>
       
-        <li class="covered" data-hits="18" data-linenumber="22">
-          <span class="hits">18</span>
+        <li class="covered" data-hits="19" data-linenumber="23">
+          <span class="hits">19</span>
           
-          <code class="ruby">			if !@lost</code>
-        </li>
-      
-        <li class="covered" data-hits="17" data-linenumber="23">
-          <span class="hits">17</span>
-          
-          <code class="ruby">				direction =~ /\A(?:L|R|)\z/ ? @orientation = turn(direction) : (go_forward if !flagged_as_dangerous?(location))</code>
+          <code class="ruby">			@last_position = @position.dup</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="24">
           
           
-          <code class="ruby">			end</code>
+          <code class="ruby">		end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="25">
           
           
-          <code class="ruby">		end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="26">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="27">
+        <li class="covered" data-hits="1" data-linenumber="26">
           <span class="hits">1</span>
           
-          <code class="ruby">		def check_still_on(world, location)</code>
+          <code class="ruby">		def move(direction, location)</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="28">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="19" data-linenumber="27">
+          <span class="hits">19</span>
           
-          <code class="ruby">			if !world.on_grid?(@position)</code>
+          <code class="ruby">			get_last_position</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="29">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="19" data-linenumber="28">
+          <span class="hits">19</span>
           
-          <code class="ruby">				leave_warning(location)</code>
+          <code class="ruby">			if !@lost</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="30">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="18" data-linenumber="29">
+          <span class="hits">18</span>
           
-          <code class="ruby">				mark_as_lost </code>
+          <code class="ruby">				direction =~ /\A(?:L|R|)\z/ ? @orientation = turn(direction) : (go_forward if !flagged_as_dangerous?(location))</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="30">
+          
+          
+          <code class="ruby">			end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="31">
           
           
-          <code class="ruby">			end</code>
+          <code class="ruby">		end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="32">
           
           
-          <code class="ruby">		end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="33">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="34">
+        <li class="covered" data-hits="1" data-linenumber="33">
           <span class="hits">1</span>
           
-          <code class="ruby">		def flagged_as_dangerous?(location)</code>
+          <code class="ruby">		def check_still_on(world, location)</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="35">
-          <span class="hits">11</span>
-          
-          <code class="ruby">			location.warning_messages.include?(@orientation)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="36">
-          
-          
-          <code class="ruby">		end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="37">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="38">
-          <span class="hits">1</span>
-          
-          <code class="ruby">		def leave_warning(location)</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="39">
+        <li class="covered" data-hits="3" data-linenumber="34">
           <span class="hits">3</span>
           
-          <code class="ruby">			location.leave_warning(@orientation)</code>
+          <code class="ruby">			if !world.find(@position)</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="35">
+          <span class="hits">3</span>
+          
+          <code class="ruby">				@position = @last_position</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="36">
+          <span class="hits">3</span>
+          
+          <code class="ruby">				leave_warning(@world.find(@position))</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="37">
+          <span class="hits">3</span>
+          
+          <code class="ruby">				mark_as_lost </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="38">
+          
+          
+          <code class="ruby">			end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="39">
+          
+          
+          <code class="ruby">		end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="40">
           
           
-          <code class="ruby">		end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="41">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="42">
+        <li class="covered" data-hits="1" data-linenumber="41">
           <span class="hits">1</span>
           
-          <code class="ruby">		def return_position</code>
+          <code class="ruby">		def flagged_as_dangerous?(location)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="43">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="12" data-linenumber="42">
+          <span class="hits">12</span>
           
-          <code class="ruby">			puts &quot;#{@position.sub(&quot;,&quot;, &quot; &quot;)} #{@orientation}#{&quot; LOST&quot; if @lost}&quot;</code>
+          <code class="ruby">			location.warning_messages.include?(@orientation)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="43">
+          
+          
+          <code class="ruby">		end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="44">
           
           
-          <code class="ruby">		end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="45">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="46">
+        <li class="covered" data-hits="1" data-linenumber="45">
           <span class="hits">1</span>
           
-          <code class="ruby">private</code>
+          <code class="ruby">		def leave_warning(location)</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="46">
+          <span class="hits">3</span>
+          
+          <code class="ruby">			location.leave_warning(@orientation)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="47">
           
           
+          <code class="ruby">		end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="48">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="48">
+        <li class="covered" data-hits="1" data-linenumber="49">
           <span class="hits">1</span>
           
-          <code class="ruby">		def turn(direction)</code>
+          <code class="ruby">		def return_position</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="49">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="2" data-linenumber="50">
+          <span class="hits">2</span>
           
-          <code class="ruby">			case @orientation</code>
+          <code class="ruby">			puts &quot;#{@position.sub(&quot;,&quot;, &quot; &quot;)} #{@orientation}#{&quot; LOST&quot; if @lost}&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="50">
+        <li class="never" data-hits="" data-linenumber="51">
           
           
-          <code class="ruby">			when &quot;N&quot;</code>
-        </li>
-      
-        <li class="covered" data-hits="6" data-linenumber="51">
-          <span class="hits">6</span>
-          
-          <code class="ruby">				direction == &quot;L&quot; ? &quot;W&quot; : &quot;E&quot;</code>
+          <code class="ruby">		end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="52">
           
           
-          <code class="ruby">			when &quot;S&quot;</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="53">
+        <li class="covered" data-hits="1" data-linenumber="53">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">				direction == &quot;L&quot; ? &quot;E&quot; : &quot;W&quot;</code>
+          <code class="ruby">private</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="54">
           
           
-          <code class="ruby">			when &quot;E&quot;</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="55">
+        <li class="covered" data-hits="1" data-linenumber="55">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">				direction == &quot;L&quot; ? &quot;N&quot; : &quot;S&quot;</code>
+          <code class="ruby">		def turn(direction)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="56">
+        <li class="covered" data-hits="6" data-linenumber="56">
+          <span class="hits">6</span>
           
-          
-          <code class="ruby">			when &quot;W&quot;</code>
+          <code class="ruby">			case @orientation</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="57">
+        <li class="never" data-hits="" data-linenumber="57">
           
           
-          <code class="ruby">				direction == &quot;L&quot; ? &quot;S&quot; : &quot;N&quot;</code>
+          <code class="ruby">			when &quot;N&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="58">
+        <li class="covered" data-hits="6" data-linenumber="58">
+          <span class="hits">6</span>
           
-          
-          <code class="ruby">			end</code>
+          <code class="ruby">				direction == &quot;L&quot; ? &quot;W&quot; : &quot;E&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="59">
           
           
-          <code class="ruby">		end</code>
+          <code class="ruby">			when &quot;S&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="60">
+        <li class="missed" data-hits="0" data-linenumber="60">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">				direction == &quot;L&quot; ? &quot;E&quot; : &quot;W&quot;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="61">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="61">
           
-          <code class="ruby">		def go_forward</code>
+          
+          <code class="ruby">			when &quot;E&quot;</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="62">
-          <span class="hits">10</span>
+        <li class="missed" data-hits="0" data-linenumber="62">
           
-          <code class="ruby">			case @orientation</code>
+          
+          <code class="ruby">				direction == &quot;L&quot; ? &quot;N&quot; : &quot;S&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="63">
           
           
-          <code class="ruby">			when &quot;N&quot;, &quot;S&quot;</code>
+          <code class="ruby">			when &quot;W&quot;</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="64">
-          <span class="hits">7</span>
+        <li class="missed" data-hits="0" data-linenumber="64">
           
-          <code class="ruby">				move_vertically</code>
+          
+          <code class="ruby">				direction == &quot;L&quot; ? &quot;S&quot; : &quot;N&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="65">
           
           
-          <code class="ruby">			when &quot;E&quot;, &quot;W&quot;</code>
+          <code class="ruby">			end</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="66">
-          <span class="hits">3</span>
+        <li class="never" data-hits="" data-linenumber="66">
           
-          <code class="ruby">				move_horizontally</code>
+          
+          <code class="ruby">		end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="67">
           
           
-          <code class="ruby">			end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="68">
-          
-          
-          <code class="ruby">		end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="69">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="70">
+        <li class="covered" data-hits="1" data-linenumber="68">
           <span class="hits">1</span>
           
-          <code class="ruby">		def move_vertically</code>
+          <code class="ruby">		def go_forward</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="71">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="11" data-linenumber="69">
+          <span class="hits">11</span>
           
-          <code class="ruby">			vertical_position = @position.slice!(2).to_i</code>
+          <code class="ruby">			case @orientation</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="72">
-          <span class="hits">7</span>
+        <li class="never" data-hits="" data-linenumber="70">
           
-          <code class="ruby">			@position.insert(2,(@orientation == &quot;N&quot; ? vertical_position+=1 : vertical_position-=1).to_s)</code>
+          
+          <code class="ruby">			when &quot;N&quot;, &quot;S&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="73">
+        <li class="covered" data-hits="8" data-linenumber="71">
+          <span class="hits">8</span>
+          
+          <code class="ruby">				move_vertically</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="72">
           
           
-          <code class="ruby">		end</code>
+          <code class="ruby">			when &quot;E&quot;, &quot;W&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="73">
+          <span class="hits">3</span>
+          
+          <code class="ruby">				move_horizontally</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="74">
           
           
+          <code class="ruby">			end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="75">
+          
+          
+          <code class="ruby">		end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="76">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="75">
+        <li class="covered" data-hits="1" data-linenumber="77">
+          <span class="hits">1</span>
+          
+          <code class="ruby">		def move_vertically</code>
+        </li>
+      
+        <li class="covered" data-hits="8" data-linenumber="78">
+          <span class="hits">8</span>
+          
+          <code class="ruby">			vertical_position = @position.slice!(2).to_i</code>
+        </li>
+      
+        <li class="covered" data-hits="8" data-linenumber="79">
+          <span class="hits">8</span>
+          
+          <code class="ruby">			@position.insert(2,(@orientation == &quot;N&quot; ? vertical_position+=1 : vertical_position-=1).to_s)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="80">
+          
+          
+          <code class="ruby">		end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="81">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="82">
           <span class="hits">1</span>
           
           <code class="ruby">		def move_horizontally</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="76">
+        <li class="covered" data-hits="3" data-linenumber="83">
           <span class="hits">3</span>
           
           <code class="ruby">			horizontal_position = @position.slice!(0).to_i</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="77">
+        <li class="covered" data-hits="3" data-linenumber="84">
           <span class="hits">3</span>
           
           <code class="ruby">			@position.insert(0,(@orientation == &quot;E&quot; ? horizontal_position +=1 : horizontal_position -=1).to_s)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="78">
+        <li class="never" data-hits="" data-linenumber="85">
           
           
           <code class="ruby">		end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="79">
+        <li class="never" data-hits="" data-linenumber="86">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="80">
+        <li class="covered" data-hits="1" data-linenumber="87">
           <span class="hits">1</span>
           
           <code class="ruby">		def mark_as_lost </code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="81">
+        <li class="covered" data-hits="3" data-linenumber="88">
           <span class="hits">3</span>
           
           <code class="ruby">			@lost = true</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="82">
+        <li class="never" data-hits="" data-linenumber="89">
           
           
           <code class="ruby">		end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="83">
+        <li class="never" data-hits="" data-linenumber="90">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="84">
+        <li class="never" data-hits="" data-linenumber="91">
           
           
           <code class="ruby">end</code>
@@ -1347,8 +1389,8 @@
     <h3>spec/robot_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>72</b> relevant lines. 
-      <span class="green"><b>72</b> lines covered</span> and
+      <b>77</b> relevant lines. 
+      <span class="green"><b>77</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -1386,14 +1428,14 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="16" data-linenumber="6">
-          <span class="hits">16</span>
+        <li class="covered" data-hits="17" data-linenumber="6">
+          <span class="hits">17</span>
           
           <code class="ruby">	let(:mars){double :mars, find: location}</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="7">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="11" data-linenumber="7">
+          <span class="hits">11</span>
           
           <code class="ruby">	let(:curiosity){Robot.new(mars,&quot;1&quot;,&quot;1&quot;,&quot;N&quot;)}</code>
         </li>
@@ -1413,11 +1455,11 @@
         <li class="covered" data-hits="4" data-linenumber="10">
           <span class="hits">4</span>
           
-          <code class="ruby">	let(:world){double :world, on_grid?: false}</code>
+          <code class="ruby">	let(:world){double :world, find: nil}</code>
         </li>
       
-        <li class="covered" data-hits="17" data-linenumber="11">
-          <span class="hits">17</span>
+        <li class="covered" data-hits="18" data-linenumber="11">
+          <span class="hits">18</span>
           
           <code class="ruby">	let(:location){double :location, warning_messages: [], leave_warning: nil}</code>
         </li>
@@ -1560,70 +1602,70 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="35">
+        <li class="covered" data-hits="1" data-linenumber="35">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">	end</code>
+          <code class="ruby">		it &#39;keeps track of its last position&#39; do </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="36">
+        <li class="covered" data-hits="1" data-linenumber="36">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">			curiosity.move(&quot;F&quot;, location)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="37">
           <span class="hits">1</span>
           
-          <code class="ruby">	context &#39;when given a command to turn&#39; do </code>
+          <code class="ruby">			expect(curiosity.last_position).to eq &quot;1,1&quot;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="38">
-          <span class="hits">1</span>
-          
-          <code class="ruby">		it &#39;turns left&#39; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="39">
-          <span class="hits">1</span>
-          
-          <code class="ruby">			curiosity.move(&quot;L&quot;, location)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="40">
-          <span class="hits">1</span>
-          
-          <code class="ruby">			expect(curiosity.orientation).to eq &quot;W&quot;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="41">
+        <li class="never" data-hits="" data-linenumber="38">
           
           
           <code class="ruby">		end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="42">
+        <li class="never" data-hits="" data-linenumber="39">
           
           
           <code class="ruby"></code>
         </li>
       
+        <li class="never" data-hits="" data-linenumber="40">
+          
+          
+          <code class="ruby">	end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="41">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="42">
+          <span class="hits">1</span>
+          
+          <code class="ruby">	context &#39;when given a command to turn&#39; do </code>
+        </li>
+      
         <li class="covered" data-hits="1" data-linenumber="43">
           <span class="hits">1</span>
           
-          <code class="ruby">		it &#39;turns right&#39; do </code>
+          <code class="ruby">		it &#39;turns left&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="44">
           <span class="hits">1</span>
           
-          <code class="ruby">			curiosity.move(&quot;R&quot;, location)</code>
+          <code class="ruby">			curiosity.move(&quot;L&quot;, location)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="45">
           <span class="hits">1</span>
           
-          <code class="ruby">			expect(curiosity.orientation).to eq &quot;E&quot;</code>
+          <code class="ruby">			expect(curiosity.orientation).to eq &quot;W&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="46">
@@ -1638,52 +1680,52 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="48">
+        <li class="covered" data-hits="1" data-linenumber="48">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">	end</code>
+          <code class="ruby">		it &#39;turns right&#39; do </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="49">
+        <li class="covered" data-hits="1" data-linenumber="49">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">			curiosity.move(&quot;R&quot;, location)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="50">
           <span class="hits">1</span>
           
-          <code class="ruby">	context &#39;when the location does not have a warning message&#39; do </code>
+          <code class="ruby">			expect(curiosity.orientation).to eq &quot;E&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="51">
           
           
+          <code class="ruby">		end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="52">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="52">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="53">
           
-          <code class="ruby">		it &#39;moves North&#39; do </code>
+          
+          <code class="ruby">	end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="53">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="54">
           
-          <code class="ruby">			curiosity.move(&quot;F&quot;, location)</code>
+          
+          <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="54">
+        <li class="covered" data-hits="1" data-linenumber="55">
           <span class="hits">1</span>
           
-          <code class="ruby">			expect(curiosity.position).to eq(&quot;1,2&quot;)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="55">
-          
-          
-          <code class="ruby">		end</code>
+          <code class="ruby">	context &#39;when the location does not have a warning message&#39; do </code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="56">
@@ -1695,151 +1737,151 @@
         <li class="covered" data-hits="1" data-linenumber="57">
           <span class="hits">1</span>
           
-          <code class="ruby">		it &#39;moves South&#39; do </code>
+          <code class="ruby">		it &#39;moves North&#39; do </code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="58">
           <span class="hits">1</span>
           
-          <code class="ruby">			curiosity = Robot.new(mars, &quot;1&quot;,&quot;1&quot;,&quot;S&quot;)</code>
+          <code class="ruby">			curiosity.move(&quot;F&quot;, location)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="59">
           <span class="hits">1</span>
           
-          <code class="ruby">			curiosity.move(&quot;F&quot;, location)</code>
+          <code class="ruby">			expect(curiosity.position).to eq(&quot;1,2&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="60">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="60">
           
-          <code class="ruby">			expect(curiosity.position).to eq(&quot;1,0&quot;)</code>
+          
+          <code class="ruby">		end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="61">
           
           
-          <code class="ruby">		end</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="62">
+        <li class="covered" data-hits="1" data-linenumber="62">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">		it &#39;moves South&#39; do </code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="63">
           <span class="hits">1</span>
           
-          <code class="ruby">		it &#39;moves East&#39; do </code>
+          <code class="ruby">			curiosity = Robot.new(mars, &quot;1&quot;,&quot;1&quot;,&quot;S&quot;)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="64">
           <span class="hits">1</span>
           
-          <code class="ruby">			curiosity = Robot.new(mars, &quot;1&quot;,&quot;1&quot;,&quot;E&quot;)</code>
+          <code class="ruby">			curiosity.move(&quot;F&quot;, location)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="65">
           <span class="hits">1</span>
           
-          <code class="ruby">			curiosity.move(&quot;F&quot;, location)</code>
+          <code class="ruby">			expect(curiosity.position).to eq(&quot;1,0&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="66">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="66">
           
-          <code class="ruby">			expect(curiosity.position).to eq(&quot;2,1&quot;)</code>
+          
+          <code class="ruby">		end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="67">
           
           
-          <code class="ruby">		end</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="68">
+        <li class="covered" data-hits="1" data-linenumber="68">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">		it &#39;moves East&#39; do </code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="69">
           <span class="hits">1</span>
           
-          <code class="ruby">		it &#39;moves West&#39; do </code>
+          <code class="ruby">			curiosity = Robot.new(mars, &quot;1&quot;,&quot;1&quot;,&quot;E&quot;)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="70">
           <span class="hits">1</span>
           
-          <code class="ruby">			curiosity = Robot.new(mars, &quot;1&quot;,&quot;1&quot;,&quot;W&quot;)</code>
+          <code class="ruby">			curiosity.move(&quot;F&quot;, location)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="71">
           <span class="hits">1</span>
           
-          <code class="ruby">			curiosity.move(&quot;F&quot;, location)</code>
+          <code class="ruby">			expect(curiosity.position).to eq(&quot;2,1&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="72">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="72">
           
-          <code class="ruby">			expect(curiosity.position).to eq(&quot;0,1&quot;)</code>
+          
+          <code class="ruby">		end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="73">
           
           
-          <code class="ruby">		end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="74">
-          
-          
-          <code class="ruby">	end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="75">
-          
-          
           <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="74">
+          <span class="hits">1</span>
+          
+          <code class="ruby">		it &#39;moves West&#39; do </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="75">
+          <span class="hits">1</span>
+          
+          <code class="ruby">			curiosity = Robot.new(mars, &quot;1&quot;,&quot;1&quot;,&quot;W&quot;)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="76">
           <span class="hits">1</span>
           
-          <code class="ruby">	context &#39;when it moves over the edge of the grid&#39; do </code>
+          <code class="ruby">			curiosity.move(&quot;F&quot;, location)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="77">
+        <li class="covered" data-hits="1" data-linenumber="77">
+          <span class="hits">1</span>
+          
+          <code class="ruby">			expect(curiosity.position).to eq(&quot;0,1&quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="78">
+          
+          
+          <code class="ruby">		end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="79">
+          
+          
+          <code class="ruby">	end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="80">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="78">
+        <li class="covered" data-hits="1" data-linenumber="81">
           <span class="hits">1</span>
           
-          <code class="ruby">		it &#39;is flagged as lost&#39; do </code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="79">
-          <span class="hits">1</span>
-          
-          <code class="ruby">			sojourner.check_still_on(world, location)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="80">
-          <span class="hits">1</span>
-          
-          <code class="ruby">			expect(sojourner.lost).to eq true</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="81">
-          
-          
-          <code class="ruby">		end</code>
+          <code class="ruby">	context &#39;when it moves over the edge of the grid&#39; do </code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="82">
@@ -1851,67 +1893,67 @@
         <li class="covered" data-hits="1" data-linenumber="83">
           <span class="hits">1</span>
           
-          <code class="ruby">		it &#39;cant change position once flagged as lost&#39; do </code>
+          <code class="ruby">		it &#39;is flagged as lost&#39; do </code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="84">
           <span class="hits">1</span>
           
-          <code class="ruby">			curiosity.lost = true</code>
+          <code class="ruby">			allow(world).to receive(:find).with(&quot;1,1&quot;).and_return(location)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="85">
           <span class="hits">1</span>
           
-          <code class="ruby">			curiosity.move(&quot;F&quot;, location)</code>
+          <code class="ruby">			sojourner.last_position = &quot;1,1&quot;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="86">
           <span class="hits">1</span>
           
-          <code class="ruby">			expect(curiosity.position).to eq(&quot;1,1&quot;)</code>
+          <code class="ruby">			sojourner.check_still_on(world, location)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="87">
+        <li class="covered" data-hits="1" data-linenumber="87">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">		end</code>
+          <code class="ruby">			expect(sojourner.lost).to eq true</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="88">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">		end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="89">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="89">
           
-          <code class="ruby">		it &#39;leaves a warning message at its last location&#39; do </code>
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="90">
           <span class="hits">1</span>
           
-          <code class="ruby">			curiosity.move(&quot;F&quot;, location)</code>
+          <code class="ruby">		it &#39;cant change position once flagged as lost&#39; do </code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="91">
           <span class="hits">1</span>
           
-          <code class="ruby">			curiosity.check_still_on(world, location)</code>
+          <code class="ruby">			curiosity.lost = true</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="92">
           <span class="hits">1</span>
           
-          <code class="ruby">			expect(curiosity.lost).to eq true</code>
+          <code class="ruby">			curiosity.move(&quot;F&quot;, location)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="93">
           <span class="hits">1</span>
           
-          <code class="ruby">			expect(location).to have_received(:leave_warning).with(&quot;N&quot;)</code>
+          <code class="ruby">			expect(curiosity.position).to eq(&quot;1,1&quot;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="94">
@@ -1929,7 +1971,7 @@
         <li class="covered" data-hits="1" data-linenumber="96">
           <span class="hits">1</span>
           
-          <code class="ruby">		it &#39;prints out its last known postion followed by LOST in the terminal&#39; do </code>
+          <code class="ruby">		it &#39;leaves a warning message at its last location&#39; do </code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="97">
@@ -1947,13 +1989,13 @@
         <li class="covered" data-hits="1" data-linenumber="99">
           <span class="hits">1</span>
           
-          <code class="ruby">			expect(STDOUT).to receive(:puts).with(&quot;1 2 N LOST&quot;)</code>
+          <code class="ruby">			expect(curiosity.lost).to eq true</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="100">
           <span class="hits">1</span>
           
-          <code class="ruby">			curiosity.return_position</code>
+          <code class="ruby">			expect(location).to have_received(:leave_warning).with(&quot;N&quot;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="101">
@@ -1968,52 +2010,52 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="103">
+        <li class="covered" data-hits="1" data-linenumber="103">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">	end</code>
+          <code class="ruby">		it &#39;prints out its last known postion followed by LOST in the terminal&#39; do </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="104">
+        <li class="covered" data-hits="1" data-linenumber="104">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">			curiosity.move(&quot;F&quot;, location)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="105">
           <span class="hits">1</span>
           
-          <code class="ruby">	context &#39;when the location does have a warning message&#39; do</code>
+          <code class="ruby">			curiosity.check_still_on(world, location)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="106">
+        <li class="covered" data-hits="1" data-linenumber="106">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">		</code>
+          <code class="ruby">			expect(STDOUT).to receive(:puts).with(&quot;1 1 N LOST&quot;)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="107">
           <span class="hits">1</span>
           
-          <code class="ruby">		it &#39;will not move in the direction of the warning&#39; do</code>
+          <code class="ruby">			curiosity.return_position</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="108">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="108">
           
-          <code class="ruby">			curiosity.move(&quot;F&quot;, dangerous_location)</code>
+          
+          <code class="ruby">		end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="109">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="109">
           
-          <code class="ruby">			expect(curiosity.position).to eq(&quot;1,1&quot;)</code>
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="110">
           
           
-          <code class="ruby">		end</code>
+          <code class="ruby">	end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="111">
@@ -2025,52 +2067,94 @@
         <li class="covered" data-hits="1" data-linenumber="112">
           <span class="hits">1</span>
           
-          <code class="ruby">		it &#39;will still move in other directions&#39; do </code>
+          <code class="ruby">	context &#39;when the location does have a warning message&#39; do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="113">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="113">
           
-          <code class="ruby">				curiosity.move(&quot;L&quot;, dangerous_location)</code>
+          
+          <code class="ruby">		</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="114">
           <span class="hits">1</span>
           
-          <code class="ruby">				curiosity.move(&quot;F&quot;, dangerous_location)</code>
+          <code class="ruby">		it &#39;will not move in the direction of the warning&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="115">
           <span class="hits">1</span>
           
-          <code class="ruby">				expect(curiosity.position).to eq(&quot;0,1&quot;)</code>
+          <code class="ruby">			curiosity.move(&quot;F&quot;, dangerous_location)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="116">
+        <li class="covered" data-hits="1" data-linenumber="116">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">		end</code>
+          <code class="ruby">			expect(curiosity.position).to eq(&quot;1,1&quot;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="117">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">		end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="118">
           
           
-          <code class="ruby">	end</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="119">
+        <li class="covered" data-hits="1" data-linenumber="119">
+          <span class="hits">1</span>
+          
+          <code class="ruby">		it &#39;will still move in other directions&#39; do </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="120">
+          <span class="hits">1</span>
+          
+          <code class="ruby">				curiosity.move(&quot;L&quot;, dangerous_location)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="121">
+          <span class="hits">1</span>
+          
+          <code class="ruby">				curiosity.move(&quot;F&quot;, dangerous_location)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="122">
+          <span class="hits">1</span>
+          
+          <code class="ruby">				expect(curiosity.position).to eq(&quot;0,1&quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="123">
+          
+          
+          <code class="ruby">		end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="124">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="120">
+        <li class="never" data-hits="" data-linenumber="125">
+          
+          
+          <code class="ruby">	end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="126">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="127">
           
           
           <code class="ruby">end</code>

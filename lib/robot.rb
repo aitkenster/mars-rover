@@ -4,11 +4,12 @@ class Robot
 			@world = world
 			@position = "#{x},#{y}"
 			@orientation = orientation
+			
 			execute(@movements) if (@movements = movements).any?
 			@lost = false
 		end
 
-		attr_accessor :world, :position, :orientation, :movements, :lost
+		attr_accessor :world, :position, :orientation, :movements, :lost, :last_position
 
 		def execute(movements)
 			@movements.each{|instruction| move(instruction, current_location)}
@@ -18,15 +19,21 @@ class Robot
 			@world.find(@position)
 		end
 
+		def get_last_position
+			@last_position = @position.dup
+		end
+
 		def move(direction, location)
+			get_last_position
 			if !@lost
 				direction =~ /\A(?:L|R|)\z/ ? @orientation = turn(direction) : (go_forward if !flagged_as_dangerous?(location))
 			end
 		end
 
 		def check_still_on(world, location)
-			if !world.on_grid?(@position)
-				leave_warning(location)
+			if !world.find(@position)
+				@position = @last_position
+				leave_warning(@world.find(@position))
 				mark_as_lost 
 			end
 		end
