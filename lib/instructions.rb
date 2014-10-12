@@ -3,20 +3,37 @@ class Instructions
 		convert_to_array(file)
 	end
 
-	def convert_to_array(file)
-		@split_instructions_array = File.read(file).chars.reject!{|char| char == " " || char == "\n"}
-	end
-
 	def create_world
 		mars = World.new(grid_size[0].to_i, grid_size[1].to_i)
 	end
 
-	attr_accessor :split_instructions_array
+	def place_new_robot
+		robot = Robot.new()
+	end
+
+	def get_set_of_instructions
+		@current_robot_instruction = position_instruction
+		@current_robot_instruction << movement_instructions
+	end
+
+	attr_accessor :unfulfilled_instructions, :current_robot_instruction
 
 	private
 
+	def convert_to_array(file)
+		@unfulfilled_instructions = File.read(file).chars.reject!{|char| char == " " || char == "\n"}
+	end
+
 	def grid_size
-		@grid_size ||= @split_instructions_array.shift(2)
+		@grid_size ||= @unfulfilled_instructions.shift(2)
+	end
+
+	def position_instruction
+		@unfulfilled_instructions.shift(3)
+	end
+
+	def movement_instructions
+		@unfulfilled_instructions.shift(@unfulfilled_instructions.take_while{|c| c =~ /[A-Z]/ }.count)
 	end
 
 
