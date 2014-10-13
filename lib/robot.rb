@@ -51,6 +51,11 @@ class Robot
 			puts "#{@position.sub(",", " ")} #{@orientation}#{" LOST" if @lost}"
 		end
 
+		def reposition(orientation, position)
+			@orientation = orientation
+			@position = position
+		end
+
 private
 
 		def turn(direction)

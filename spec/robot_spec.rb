@@ -17,6 +17,12 @@ describe 'robot' do
 			expect(curiosity.orientation).to eq "N"
 		end
 
+		it 'can be repositioned' do 
+			curiosity.reposition("W", "2,2")
+			expect(curiosity.orientation).to eq ("W")
+			expect(curiosity.position).to eq("2,2")
+		end
+
 		it 'can take a set of movements if given' do
 			expect(opportunity.movements).to eq(["F","L"])
 		end
@@ -38,7 +44,7 @@ describe 'robot' do
 
 	end
 
-	context 'when given a command to turn' do 
+	xcontext 'when given a command to turn' do 
 		it 'turns left' do
 			curiosity.move("L", location)
 			expect(curiosity.orientation).to eq "W"
@@ -51,7 +57,7 @@ describe 'robot' do
 
 	end
 
-	context 'when the location does not have a warning message' do 
+	xcontext 'when the location does not have a warning message' do 
 	
 
 		it 'moves North' do 

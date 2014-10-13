@@ -67,7 +67,6 @@ class Forward < Command
 		end
 	end
 
-
 	def move_vertically
 		vertical_position = @position.slice!(2).to_i
 		@position.insert(2,(@orientation == "N" ? vertical_position+=1 : vertical_position-=1).to_s)
