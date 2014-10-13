@@ -25,11 +25,6 @@ describe 'instructions' do
 			nasa_orders.create_world
 		end
 
-		it 'splits the rest of the file into individual robot instructions' do 
-			nasa_orders.get_set_of_instructions
-			expect(nasa_orders.current_robot_instruction).to eq(["1", "1","E", ["R", "F", "R", "F", "R", "F", "R", "F"]])
-		end
-
 	context 'executing instructions' do 
 
 		before(:each) do
@@ -51,17 +46,19 @@ describe 'instructions' do
 
 		it 'feeds a the full list of instructions to the robot' do 
 			nasa_orders.robot = double :rover, orientation: "N", position: "1,2"
-			nasa_orders.current_robot_instruction = ["1", "1","E", ["L", "L", "L"]]
+			nasa_orders.current_robot_instruction = ["L", "L", "L"]
 			command = class_double("Left").as_stubbed_const()
 			allow(command).to receive(:new)
 			nasa_orders.execute_order_list
-			expect(nasa_orders.current_robot_instruction[3]).to be_empty
+			expect(nasa_orders.current_robot_instruction).to be_empty
 		end
 
-		xit 'continues to feed instructions until there are none left' do 
-			rover = double :rover, orientation: "N", position: "1,2"
-			allow(robot).to receive(:new).and_return(rover)
+		it 'continues to feed instructions until there are none left' do 
 			nasa_orders.unfulfilled_instructions = ["1", "1","E", "L", "L", "L", "1", "1","E", "L", "L", "L"] 
+			rover = double :rover, orientation: "N", position: "1,2"
+			allow(rover).to receive(:reposition)
+			allow(rover).to receive(:return_position)
+			allow(robot).to receive(:new).and_return(rover)
 			nasa_orders.process_robot_instructions
 			expect(nasa_orders.unfulfilled_instructions).to be_empty
 		end

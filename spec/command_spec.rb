@@ -8,8 +8,8 @@ describe 'commands' do
 	context 'when commanded to turn left' do
 
 		it 'turns the robot to the left' do 
-			expect(robot).to receive(:reposition).with("W", "3,3")
-			left_command = Left.new(robot, "N", "3,3")
+			expect(robot).to receive(:reposition).with("W", [3,3])
+			left_command = Left.new(robot, "N", [3,3])
 		end
 
 	end

@@ -13,42 +13,38 @@ end
 
 class Left < Command
 
+	NewDirection = {
+									:"N" => "W",
+									:"S" => "E",
+									:"E" => "N",
+									:"W" => "S"
+								}
+
 	def execute
 		@robot.reposition(turn(@orientation), @position)
 	end
 
 	def turn(orientation)
-			case orientation
-			when "N"
-				"W"
-			when "S"
-				"E"
-			when "E"
-				"N"
-			when "W"
-				"S"
-			end
+		NewDirection[:"#{orientation}"]
 	end
 
 end
 
 class Right < Command
 
+	NewDirection = {
+									:"N" => "E",
+									:"S" => "W",
+									:"E" => "S",
+									:"W" => "N"
+								}
+
 	def execute
 		@robot.reposition(turn(@orientation), @position)
 	end
 
 	def turn(orientation)
-		case orientation
-		when "N"
-			"E"
-		when "S"
-			"W"
-		when "E"
-			"S"
-		when "W"
-			"N"
-		end
+		NewDirection[:"#{orientation}"]
 	end
 
 end
@@ -60,22 +56,30 @@ class Forward < Command
 	end
 
 	def move
+		split_position
 		case @orientation
 		when "N", "S"
 			move_vertically
 		when "E", "W"
 		move_horizontally
 		end
+		return joined_position
 	end
 
 	def move_vertically
-		vertical_position = @position.slice!(2).to_i
-		@position.insert(2,(@orientation == "N" ? vertical_position+=1 : vertical_position-=1).to_s)
+		@orientation == "N" ? @position[1] +=1 : @position[1]-=1
 	end
 
 	def move_horizontally
-		horizontal_position = @position.slice!(0).to_i
-		@position.insert(0,(@orientation == "E" ? horizontal_position +=1 : horizontal_position -=1).to_s)
+		@orientation == "E" ? @position[0]+=1 : @position[0]-=1
+	end
+
+	def split_position
+		@position = @position.split(",").map(&:to_i)
+	end
+
+	def joined_position
+		@position = @position.map(&:to_s).join(',')
 	end
 end
 
