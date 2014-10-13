@@ -49,8 +49,19 @@ describe 'instructions' do
 			nasa_orders.execute("L")
 		end
 
-		it 'continues to feed instructions until there are none left' do 
-			allow(robot).to receive(:new)
+		it 'feeds a the full list of instructions to the robot' do 
+			nasa_orders.robot = double :rover, orientation: "N", position: "1,2"
+			nasa_orders.current_robot_instruction = ["1", "1","E", ["L", "L", "L"]]
+			command = class_double("Left").as_stubbed_const()
+			allow(command).to receive(:new)
+			nasa_orders.execute_order_list
+			expect(nasa_orders.current_robot_instruction[3]).to be_empty
+		end
+
+		xit 'continues to feed instructions until there are none left' do 
+			rover = double :rover, orientation: "N", position: "1,2"
+			allow(robot).to receive(:new).and_return(rover)
+			nasa_orders.unfulfilled_instructions = ["1", "1","E", "L", "L", "L", "1", "1","E", "L", "L", "L"] 
 			nasa_orders.process_robot_instructions
 			expect(nasa_orders.unfulfilled_instructions).to be_empty
 		end

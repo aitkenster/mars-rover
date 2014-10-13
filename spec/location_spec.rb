@@ -27,6 +27,11 @@ describe 'location' do
 			expect(location.warning_messages).to include("N")
 		end
 
+		it 'will only add a warning if it is unique' do
+			location.leave_warning("W")
+			location.leave_warning("W")
+			expect(location.warning_messages.count).to eq 1
+		end
 	end
 
 end

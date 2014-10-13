@@ -1,8 +1,8 @@
 class Command
 	def initialize(robot, orientation, position)
 		@robot = robot
-		@orientation = orientation
-		@position = position
+		@orientation = orientation.dup
+		@position = position.dup
 		execute
 	end
 
@@ -64,7 +64,7 @@ class Forward < Command
 		when "N", "S"
 			move_vertically
 		when "E", "W"
-			move_horizontally
+		move_horizontally
 		end
 	end
 

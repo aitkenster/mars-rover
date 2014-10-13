@@ -22,6 +22,10 @@ class Robot
 			@last_position = @position.dup
 		end
 
+		def on_world?
+			@world.find(@position) != nil
+		end
+
 		def check_still_on_world
 			if !@world.find(@position)
 				@position = @last_position
@@ -30,8 +34,8 @@ class Robot
 			end
 		end
 
-		def flagged_as_dangerous?(location)
-			location.warning_messages.include?(@orientation)
+		def flagged_as_dangerous?
+			current_location.warning_messages.include?(@orientation)
 		end
 
 		def leave_warning(location)
@@ -39,16 +43,26 @@ class Robot
 		end
 
 		def return_position
-			puts "#{@position.sub(",", " ")} #{@orientation}#{" LOST" if @lost}"
+			puts "#{@last_position.sub(",", " ")} #{@orientation}#{" LOST" if @lost}"
 		end
 
-		def reposition(orientation, position)
-			get_last_position
-			check_still_on_world
-			if !@lost
-				@position = position unless flagged_as_dangerous?(current_location)
-				@orientation = orientation 
-			end
+		def reposition(new_orientation, new_position)
+				return if @lost
+				if new_position != @position && flagged_as_dangerous? == false
+					@position = new_position
+				 if @world.find(@position) == nil
+				 	declare_lost
+				 	return
+				 end
+				else
+					@orientation = new_orientation
+				end
+				get_last_position
+		end
+
+		def declare_lost
+			mark_as_lost
+			leave_warning(@world.find(@last_position))
 		end
 
 private

@@ -11,14 +11,22 @@ class Instructions
 	end
 
 	def process_robot_instructions
-		while !unfulfilled_instructions.empty?
+		while !@unfulfilled_instructions.empty?
 			get_set_of_instructions
 			place_new_robot
+			execute_order_list
+			@robot.return_position
+		end
+	end
+
+	def execute_order_list
+		while !current_robot_instruction[3].empty?
+			execute(current_robot_instruction[3].shift)
 		end
 	end
 
 	def place_new_robot
-		@robot = Robot.new(@world, @current_robot_instruction[0], @current_robot_instruction[1], @current_robot_instruction[2])
+		 @robot = Robot.new(@world, @current_robot_instruction[0], @current_robot_instruction[1], @current_robot_instruction[2])
 	end
 
 	def get_set_of_instructions
