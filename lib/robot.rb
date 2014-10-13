@@ -22,14 +22,6 @@ class Robot
 			@last_position = @position.dup
 		end
 
-		# def move(direction, location)
-		# 	check_still_on(@world, current_location)
-		# 	if !@lost
-		# 		get_last_position
-		# 		direction =~ /\A(?:L|R|)\z/ ? @orientation = turn(direction) : (go_forward if !flagged_as_dangerous?(location))
-		# 	end
-		# end
-
 		def check_still_on_world
 			if !@world.find(@position)
 				@position = @last_position

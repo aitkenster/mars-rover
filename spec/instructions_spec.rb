@@ -36,10 +36,17 @@ describe 'instructions' do
 			nasa_orders.world = world
 		end
 
-		it 'feeds the instructions to a robot' do
+		it 'positions a new robot' do
 			nasa_orders.current_robot_instruction = ["1", "1","E", ["R", "F", "R", "F", "R", "F", "R", "F"]]
-			expect(robot).to receive(:new).with(world, "1", "1", "E", ["R", "F", "R", "F", "R", "F", "R", "F"])
+			expect(robot).to receive(:new).with(world, "1", "1", "E")
 			nasa_orders.place_new_robot
+		end
+
+		it 'feeds a command to the robot' do 
+			nasa_orders.robot = double :rover, orientation: "N", position: "1,2"
+			command = class_double("Left").as_stubbed_const()
+			expect(command).to receive(:new).with(nasa_orders.robot, "N", "1,2")
+			nasa_orders.execute("L")
 		end
 
 		it 'continues to feed instructions until there are none left' do 

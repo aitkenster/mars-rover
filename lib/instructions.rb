@@ -1,4 +1,7 @@
 class Instructions
+
+	Dictionary = {:"L" => "Left", :"R" => "Right", :"F" => "Forward"}
+
 	def initialize(file)
 		convert_to_array(file)
 	end
@@ -15,7 +18,7 @@ class Instructions
 	end
 
 	def place_new_robot
-		robot = Robot.new(@world, @current_robot_instruction[0], @current_robot_instruction[1], @current_robot_instruction[2], @current_robot_instruction[3])
+		@robot = Robot.new(@world, @current_robot_instruction[0], @current_robot_instruction[1], @current_robot_instruction[2])
 	end
 
 	def get_set_of_instructions
@@ -23,7 +26,11 @@ class Instructions
 		@current_robot_instruction << movement_instructions
 	end
 
-	attr_accessor :unfulfilled_instructions, :current_robot_instruction, :world
+	def execute(command)
+		translate(command).new(@robot, @robot.orientation, @robot.position)
+	end
+
+	attr_accessor :unfulfilled_instructions, :current_robot_instruction, :world, :robot
 
 	private
 
@@ -41,6 +48,10 @@ class Instructions
 
 	def movement_instructions
 		@unfulfilled_instructions.shift(@unfulfilled_instructions.take_while{|c| c =~ /[A-Z]/ }.count)
+	end
+
+	def translate(command)
+		return Object.const_get(Dictionary[:"#{command}"])
 	end
 
 

@@ -3,6 +3,7 @@ class Command
 		@robot = robot
 		@orientation = orientation
 		@position = position
+		execute
 	end
 
 	def execute
