@@ -16,9 +16,7 @@ describe 'commands' do
 
 	end
 
-end
-
-	context 'when commanded to turn left' do 
+	context 'when commanded to turn right' do 
 
 		it 'turns the robot to the right' do 
 			expect(robot).to receive(:resposition).with("E", "3,3")
