@@ -17,20 +17,25 @@ describe 'robot' do
 			expect(curiosity.orientation).to eq "N"
 		end
 
-		it 'can be repositioned' do 
-			curiosity.reposition("W", "2,2")
-			expect(curiosity.orientation).to eq ("W")
+		it 'can be moved to different positions' do 
+			curiosity.reposition("N", "2,2")
 			expect(curiosity.position).to eq("2,2")
 		end
 
+		it 'can change direction' do 
+			curiosity.reposition("W", "1,1")
+			expect(curiosity.orientation).to eq("W")
+		end
+
 		it 'will print out its position in the terminal' do
+			opportunity.last_position = "1,1"
 			allow(STDOUT).to receive(:puts).with("1 1 N")
 			opportunity.return_position
 		end
 
 		it 'keeps track of its last position' do 
 			curiosity.reposition("N", "1,2")
-			expect(curiosity.last_position).to eq "1,1"
+			expect(curiosity.last_position).to eq "1,2"
 		end
 
 	end
@@ -41,23 +46,20 @@ describe 'robot' do
 	let(:world){double :world, find: nil}
 
 		it 'is flagged as lost' do 
-			allow(world).to receive(:find).with("1,1").and_return(location)
-			sojourner.last_position = "1,1"
-			sojourner.check_still_on_world
-			expect(sojourner.lost).to eq true
+			allow(world).to receive(:find).with("1,1").and_return(nil)
+			expect(sojourner.lost?).to eq true
 		end
 
-		it 'cant change position once flagged as lost' do 
-			curiosity.lost = true
+		it 'cant change last position once flagged as lost' do 
+			allow(mars).to receive(:find).and_return nil
 			curiosity.reposition("N", "2,1")
-			expect(curiosity.position).to eq("1,1")
+			expect(curiosity.last_position).to eq("1,1")
 		end
 
 		it 'leaves a warning message at its last location' do 
-			curiosity.reposition("N", "1,2")
-			curiosity.world = world
 			allow(world).to receive(:find).with('1,1').and_return(location)
-			curiosity.check_still_on_world
+			curiosity.world = world
+			curiosity.process_forward_request("1,2")
 			expect(curiosity.lost).to eq true
 			expect(location).to have_received(:leave_warning).with("N")
 		end
