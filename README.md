@@ -21,7 +21,7 @@ coordinates are assumed to be 0, 0.
 position and orientation of the robot.
 + If a robot falls off the edge of the grid the word “LOST” should be printed after the position and orientation.
 
-Sample Input
+#####Sample Input
 
 ```sh
 5 3
@@ -32,7 +32,7 @@ FRRFLLFFRRFLL
 0 3 W
 LLFFFLFLFL
 ```
-Sample Output
+#####Sample Output
 
 ```sh
 1 1 E
