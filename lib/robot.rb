@@ -4,15 +4,15 @@ class Robot
 			@world = world
 			@position = "#{x},#{y}"
 			@orientation = orientation
-			@last_position = "#{x},#{y}"
+			@last_position = @position.dup
 		end
 
 		attr_accessor :world, :position, :orientation, :movements, :lost, :last_position
 
 		def reposition(new_orientation, new_position)
-				return if lost?
-				forward_request_not_flagged_as_dangerous?(new_position) ? process_forward_request(new_position) : update(new_orientation)
-				get_last_position if !lost?
+			return if lost?
+			forward_request_not_flagged_as_dangerous?(new_position) ? process_forward_request(new_position) : update(new_orientation)
+			update_last_known_position if !lost?
 		end
 
 		def forward_request_not_flagged_as_dangerous?(new_position)
@@ -36,7 +36,7 @@ class Robot
 			@world.find(@position)
 		end
 
-		def get_last_position
+		def update_last_known_position
 			@last_position = @position.dup
 		end
 

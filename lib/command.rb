@@ -56,14 +56,15 @@ class Forward < Command
 	end
 
 	def move
-		split_position
-		case @orientation
-		when "N", "S"
-			move_vertically
-		when "E", "W"
-		move_horizontally
-		end
-		return joined_position
+		split_coordinates
+		["N", "S"].include?(@orientation) ? move_vertically : move_horizontally
+		return joined_coordinates
+	end
+
+	private
+
+	def split_coordinates
+		@position = @position.split(",").map(&:to_i)
 	end
 
 	def move_vertically
@@ -74,11 +75,7 @@ class Forward < Command
 		@orientation == "E" ? @position[0]+=1 : @position[0]-=1
 	end
 
-	def split_position
-		@position = @position.split(",").map(&:to_i)
-	end
-
-	def joined_position
+	def joined_coordinates
 		@position = @position.map(&:to_s).join(',')
 	end
 end

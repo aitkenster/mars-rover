@@ -9,12 +9,10 @@ describe 'robot' do
 
 	context 'when created' do 
 	
-		let(:opportunity){Robot.new(mars, "1", "1", "N")}
-	
 		it 'has an initial world, location and orientation' do
 			expect(curiosity.world).to eq(mars)
 			expect(curiosity.position).to eq("1,1")
-			expect(curiosity.orientation).to eq "N"
+			expect(curiosity.orientation).to eq("N")
 		end
 
 		it 'can be moved to different positions' do 
@@ -28,9 +26,9 @@ describe 'robot' do
 		end
 
 		it 'will print out its position in the terminal' do
-			opportunity.last_position = "1,1"
+			curiosity.last_position = "1,1"
 			allow(STDOUT).to receive(:puts).with("1 1 N")
-			opportunity.return_position
+			curiosity.return_position
 		end
 
 		it 'keeps track of its last position' do 
@@ -42,18 +40,23 @@ describe 'robot' do
 
 	context 'when it moves over the edge of the grid' do 
 
-	let(:sojourner){Robot.new(world, "0","-1","S")}
+	let(:sojourner){Robot.new(world, "0","0","S")}
 	let(:world){double :world, find: nil}
 
 		it 'is flagged as lost' do 
-			allow(world).to receive(:find).with("1,1").and_return(nil)
+			sojourner.reposition("S", "0,-1")
 			expect(sojourner.lost?).to eq true
 		end
 
 		it 'cant change last position once flagged as lost' do 
-			allow(mars).to receive(:find).and_return nil
-			curiosity.reposition("N", "2,1")
-			expect(curiosity.last_position).to eq("1,1")
+			sojourner.reposition("S", "0,-1")
+			expect(sojourner.last_position).to eq("0,0")
+		end
+
+		it 'prints out its last known postion followed by LOST in the terminal' do 
+			sojourner.lost = true
+			expect(STDOUT).to receive(:puts).with("0 0 S LOST")
+			sojourner.return_position
 		end
 
 		it 'leaves a warning message at its last location' do 
@@ -62,12 +65,6 @@ describe 'robot' do
 			curiosity.process_forward_request("1,2")
 			expect(curiosity.lost).to eq true
 			expect(location).to have_received(:leave_warning).with("N")
-		end
-
-		it 'prints out its last known postion followed by LOST in the terminal' do 
-			curiosity.lost = true
-			expect(STDOUT).to receive(:puts).with("1 1 N LOST")
-			curiosity.return_position
 		end
 
 	end
